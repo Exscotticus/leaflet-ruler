@@ -39,3 +39,10 @@
 .plus-length{
   padding-left: 45px;
 }
+.ruler-labels {
+  font-weight: bold;
+  text-align: right;
+}
+.ruler-values {
+  text-align: left;
+}
