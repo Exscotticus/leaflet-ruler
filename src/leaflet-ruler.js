@@ -246,7 +246,7 @@
 			text += '</tr>'
 			text += '</table>';
 
-			L.circleMarker(this._movingLatLong, this.options.circleMarker).bindTooltip(text, {sticky: true, offset: L.point(0, -40), className: 'moving-tooltip'}).addTo(this._tempPoint).openTooltip();
+			L.circleMarker(this._movingLatLong, this.options.circleMarker).bindTooltip(text, {sticky: true, offset: L.point(0, 0), className: 'moving-tooltip'}).addTo(this._tempPoint).openTooltip();
 		},
 		_escape: function(e) {
 
