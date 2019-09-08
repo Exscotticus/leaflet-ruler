@@ -158,14 +158,20 @@
 
 				for (var i = 0; i < this.options.lengthUnits.conversions.length; i++) {
 
-					if (this.options.lengthUnits.conversions[i].max && this._result.Distances[i] > this.options.lengthUnits.conversions[i].max) continue;
-
 					if (this._clickCount > 1) {
 						this._totalLengths[i] += this._result.Distances[i];
+
+						// max check.
+						if (this.options.lengthUnits.conversions[i].max && this._addedLengths[i] > this.options.lengthUnits.conversions[i].max) continue;
+
 						text += this._totalLengths[i].toFixed(this.options.lengthUnits.conversions[i].decimal) + '&nbsp;' + this.options.lengthUnits.conversions[i].display + '<br>';
 					}
 					else {
 						this._totalLengths[i] += this._result.Distances[i];
+
+						// max check.
+						if (this.options.lengthUnits.conversions[i].max && this._addedLengths[i] > this.options.lengthUnits.conversions[i].max) continue;
+
 						text += this._result.Distances[i].toFixed(this.options.lengthUnits.conversions[i].decimal) + '&nbsp;' + this.options.lengthUnits.conversions[i].display + '<br>';
 					}
 				}
@@ -232,7 +238,8 @@
 
 			for (var i = 0; i < this.options.lengthUnits.conversions.length; i++) {
 
-				if (this.options.lengthUnits.conversions[i].max && this._result.Distances[i] > this.options.lengthUnits.conversions[i].max) continue;
+				// max check.
+				if (this.options.lengthUnits.conversions[i].max && this._addedLengths[i] > this.options.lengthUnits.conversions[i].max) continue;
 
 				if (this._clickCount > 1) {
 					text += this._addedLengths[i].toFixed(this.options.lengthUnits.conversions[i].decimal) + '&nbsp;' + this.options.lengthUnits.conversions[i].display + '&nbsp;(+' + this._result.Distances[i].toFixed(this.options.lengthUnits.conversions[i].decimal) + ')<br>';
